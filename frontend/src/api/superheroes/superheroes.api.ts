@@ -10,8 +10,14 @@ export interface SuperHero {
     images:string[]
 }
 
+export interface SuperHeroesList{
+    id:string,
+    nickName:string,
+    imageUrl:string,
+}
+
 export interface SuperHeroesResponse {
-    data: SuperHero[];
+    data: SuperHeroesList[];
     total: number;
 }
 
@@ -19,7 +25,7 @@ export type CreateSuperHero = Omit<SuperHero, "id">;
 
 export type UpdateSuperHero = Partial<Pick<SuperHero,"originDescription" | "catchPhrase" | "images">>;
 
-export async function getAllSuperHeroes(page:number=1): Promise<SuperHeroesResponse[]> {
+export async function getAllSuperHeroes(page:number=1): Promise<SuperHeroesResponse> {
     const response = await api.get<SuperHeroesResponse>(`/superheroes`, {params:{page:page}});
     return response.data;
 }

@@ -1,0 +1,118 @@
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.nickName {
+    font-size: 3rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.realName {
+    font-size: 1.2rem;
+    color: gray;
+    margin-top: 5px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.label {
+    display: block;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.text {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 0;
+    line-height: 1.6;
+    color: #2c3e50;
+    border-left: 4px solid cornflowerblue;
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: cornflowerblue;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.gallery {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.image {
+    height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.buttonGroup {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.1s, opacity 0.2s;
+    color: white;
+}
+
+.btnSave {
+    background-color: teal;
+}
+.btnCancel {
+    background-color: gray;
+}
+.btnEdit {
+    background-color: orange;
+}
+.btnRemove {
+    background-color: red;
+}
