@@ -15,6 +15,7 @@ export class SuperheroService {
             skip:skip,
             take:pageSize,
             select:{
+                id:true,
                 nickName:true,
                 images:true
             }
@@ -23,6 +24,7 @@ export class SuperheroService {
 
         return {
             data: superHeroes.map(item => ({
+                id:item.id,
                 nickName: item.nickName,
                 imageUrl: item.images[0] ?? null
             })),

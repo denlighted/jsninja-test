@@ -1,4 +1,4 @@
-import {IsOptional, IsString} from "class-validator";
+import {ArrayMaxSize, IsArray, IsOptional, IsString} from "class-validator";
 import { Transform } from 'class-transformer';
 
 export class UpdateSuperheroRequest{
@@ -19,5 +19,7 @@ export class UpdateSuperheroRequest{
         if(typeof value === 'string') return [value];
         return value;
     })
+    @IsArray({message:"List of images should be a string array"})
+    @ArrayMaxSize(4)
     images?:string[]
 }

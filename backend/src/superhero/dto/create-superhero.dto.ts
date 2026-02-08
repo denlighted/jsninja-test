@@ -1,4 +1,4 @@
-import {IsArray, IsNotEmpty, IsOptional, IsString} from "class-validator";
+import {ArrayMaxSize, IsArray, IsNotEmpty, IsOptional, IsString} from "class-validator";
 
 export class CreateSuperheroRequest {
     @IsNotEmpty({ message: 'Nickname should not be empty' })
@@ -21,8 +21,9 @@ export class CreateSuperheroRequest {
     @IsOptional()
     catchPhrase?:string
 
-    @IsArray()
     @IsOptional()
     @IsString({ message: 'Path to image should be a string', each: true },)
+    @IsArray({message:"List of images should be a string array"})
+    @ArrayMaxSize(4)
     images?:string[]
 }
