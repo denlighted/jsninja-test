@@ -28,5 +28,5 @@ Start backend:
 ## 3. Frontend Setup
 
     cd frontend
-    yarn install
-    yarn dev
+    npm install
+    npm run dev
