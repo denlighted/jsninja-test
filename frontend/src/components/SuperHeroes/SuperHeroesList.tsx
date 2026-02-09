@@ -5,16 +5,34 @@ import {fetchSuperHeroes} from "../../store/superHero/superHero.thunks.ts";
 import cl from './SuperHeroesList.module.css'
 import {Link} from "react-router-dom";
 import CreateSuperHero from "../SuperHero/CreateSuperHero.tsx";
+import {setPage} from "../../store/superHero/superHero.slice.ts";
 
 
 export const SuperHeroesList = () => {
     const dispatch = useAppDispatch();
 
-    const {superHeroes, isLoading,error} = useAppSelector(state => state.superHero)
+    const {superHeroes, isLoading,error,total,page} = useAppSelector(state => state.superHero)
+
+    const limit = 5;
+
+    const totalPages = Math.ceil(total/limit);
 
     useEffect(()=>{
-        dispatch(fetchSuperHeroes(1))
-    },[dispatch]);
+        dispatch(fetchSuperHeroes(page))
+    },[dispatch,page]);
+
+    const handleNextPage = ()=>{
+        if(page<totalPages){
+            dispatch(setPage(page+1));
+        }
+    };
+
+    const handlePrevPage = ()=>{
+        if(page>1){
+            dispatch(setPage(page-1));
+        }
+    }
+
 
     if(isLoading){
         return <div>Loading...</div>
@@ -50,6 +68,29 @@ export const SuperHeroesList = () => {
                     </Link>
                 ))}
             </div>
+            {total > 0 && (
+                <div className={cl.pagination}>
+                    <button
+                        className={cl.pageBtn}
+                        onClick={handlePrevPage}
+                        disabled={page === 1}
+                    >
+                        ← Prev
+                    </button>
+
+                    <span className={cl.pageInfo}>
+                        Page {page} of {totalPages}
+                    </span>
+
+                    <button
+                        className={cl.pageBtn}
+                        onClick={handleNextPage}
+                        disabled={page >= totalPages}
+                    >
+                        Next →
+                    </button>
+                </div>
+            )}
         </div>
     );
 };

@@ -70,7 +70,11 @@ export const superHeroSlice = createSlice({
                 state.isLoading = false;
                 const index = state.superHeroes.findIndex(h => h.id === action.payload.id);
                 if(index!== -1){
-                    state.superHeroes[index] = action.payload;
+                    state.superHeroes[index] = {
+                        id:action.payload.id,
+                        nickName:action.payload.nickName,
+                        imageUrl:action.payload.images[0]||""
+                    };
                 }
                 if (state.currentSuperHero?.id === action.payload.id) {
                     state.currentSuperHero = action.payload;

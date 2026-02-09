@@ -10,6 +10,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<SuperHeroesList />} />
                 <Route path="/hero/:id" element={<SuperHero />} />
+                <Route path="*" element={<h2>Page not found</h2>}/>
             </Routes>
         </div>
     )
