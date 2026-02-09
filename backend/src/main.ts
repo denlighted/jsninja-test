@@ -16,7 +16,7 @@ async function bootstrap() {
   );
 
   app.enableCors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173',"https://jsninja-test-1.onrender.com"],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   });
 
